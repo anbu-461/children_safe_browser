@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Child Safe Browser</title>
+
+    <!-- Link your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>🧒 Child Safe Browser</h2>
+
+    <!-- 🔥 Remaining Time Display -->
+    {% if remaining_time %}
+    <div class="time-box">
+        ⏳ Remaining Time: {{ remaining_time }} minutes
+    </div>
+    {% endif %}
+
+    <!-- 🔥 Website Form -->
+    <form method="POST">
+        <input type="text" name="url" placeholder="Enter allowed website (example: google.com)" required>
+        <button type="submit">Open Website</button>
+    </form>
+
+    <!-- 🔥 Blocked Message -->
+    {% if message %}
+    <div class="message">
+        {{ message }}
+    </div>
+    {% endif %}
+
+    <!-- 🔥 Logout Button -->
+    <form action="/child_login">
+        <button type="submit" class="logout-btn">Logout</button>
+    </form>
+
+</div>
+
+</body>
+</html>
